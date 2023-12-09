@@ -1,0 +1,42 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  devtools: { enabled: true },
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "@vueuse/nuxt", "nuxt-icon"],
+
+  tailwindcss: {
+    exposeConfig: true,
+  },
+
+  colorMode: {
+    classSuffix: "",
+  },
+
+  typescript: {
+    shim: false,
+  },
+
+  build: {
+    transpile: ['vue-sonner']
+  },
+
+  runtimeConfig: {},
+
+  imports: {
+    imports: [
+      {
+        from: "tailwind-variants",
+        name: "tv",
+      },
+      {
+        from: "tailwind-variants",
+        name: "VariantProps",
+        type: true,
+      },
+      { 
+        from: "vue-sonner",
+        name: "toast", 
+        as: "useSonner" 
+      },
+    ],
+  },
+});
